@@ -23,10 +23,12 @@ client_scripts {
 
 client_scripts {
     'client.lua',
+    '@mysql-async/lib/MySQL.lua',
     'config.lua'
 }
 
 server_scripts {
     'server.lua',
+    '@mysql-async/lib/MySQL.lua',
     'config.lua'
 }
