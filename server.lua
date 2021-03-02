@@ -6,10 +6,9 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 ESX.RegisterServerCallback('h4ci_garage:listevoiturefourriere', function(source, cb)
 	local ownedCars = {}
 	local xPlayer = ESX.GetPlayerFromId(source)
-		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job = @job AND `stored` = @stored', { -- job = NULL
+		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND `stored` = @stored', { -- job = NULL
 			['@owner'] = xPlayer.identifier,
 			['@Type'] = 'car',
-			['@job'] = 'civ',
 			['@stored'] = false
 		}, function(data)
 			for _,v in pairs(data) do
@@ -24,10 +23,9 @@ end)
 ESX.RegisterServerCallback('h4ci_garage:listevoiture', function(source, cb)
 	local ownedCars = {}
 	local xPlayer = ESX.GetPlayerFromId(source)
-		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job = @job AND `stored` = @stored', { -- job = NULL
+		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND `stored` = @stored', { -- job = NULL
 			['@owner'] = xPlayer.identifier,
 			['@Type'] = 'car',
-			['@job'] = 'civ',
 			['@stored'] = true
 		}, function(data)
 			for _,v in pairs(data) do
